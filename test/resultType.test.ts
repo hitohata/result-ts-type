@@ -53,10 +53,8 @@ describe("ERR", () => {
 });
 
 describe("result", () => {
-
 	describe("ok", () => {
-
-		const VALUE = "value"
+		const VALUE = "value";
 
 		const okResult = (): Result<string, any> => {
 			return Ok(VALUE);
@@ -69,30 +67,27 @@ describe("result", () => {
 			if (ok.ok) {
 				expect(ok.value).toBe("value");
 			}
-
-		})
+		});
 
 		it("unwrap in ok", () => {
 			const unwrapResult = okResult().unwrap();
 			expect(unwrapResult).toBe(VALUE);
-		})
+		});
 
 		it("unwrap or default in ok", () => {
 			const DEFAULT = "default";
 			const unwrapOrElseResult = okResult().unwrapOrElse(DEFAULT);
 			expect(unwrapOrElseResult).toBe(VALUE);
 			expect(unwrapOrElseResult).not.toBe(DEFAULT);
-		})
+		});
 
 		it("unwrap err in ok", () => {
 			expect(() => okResult().unwrapError()).toThrow();
 		});
-
-	})
+	});
 
 	describe("error", () => {
-
-		const ERROR = new Error("error")
+		const ERROR = new Error("error");
 
 		const errResult = (): Result<any, Error> => {
 			return Err(ERROR);
@@ -108,22 +103,17 @@ describe("result", () => {
 		});
 
 		it("unwrap in err", () => {
-			expect(() => errResult().unwrap()).toThrowError()
-		})
+			expect(() => errResult().unwrap()).toThrowError();
+		});
 
 		it("unwrap or default in err", () => {
 			const DEFAULT = "default";
 			const unwrapOrElseResult = errResult().unwrapOrElse(DEFAULT);
 			expect(unwrapOrElseResult).toBe(DEFAULT);
-		})
+		});
 
 		it("unwrap err in ok", () => {
 			expect(errResult().unwrapError()).toBeInstanceOf(Error);
 		});
-
-	})
-
-
-
-
+	});
 });

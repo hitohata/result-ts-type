@@ -18,7 +18,7 @@ interface IErr<E> {
 	unwrapError(): E;
 }
 
-class OK<T> implements IOk<T>{
+class OK<T> implements IOk<T> {
 	public readonly ok: true;
 	public readonly value: T;
 
