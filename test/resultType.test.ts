@@ -18,8 +18,8 @@ describe("OK", () => {
 	});
 
 	it("unwrap or default", () => {
-		expect(ok.unwrapOrDefault("default")).toBe(VALUE);
-		expect(ok.unwrapOrDefault("default")).not.toBe("default");
+		expect(ok.unwrapOrElse("default")).toBe(VALUE);
+		expect(ok.unwrapOrElse("default")).not.toBe("default");
 	});
 
 	it("unwrap error, threw error", () => {
@@ -44,7 +44,7 @@ describe("ERR", () => {
 	});
 
 	it("unwrap or default", () => {
-		expect(err.unwrapOrDefault("default")).toBe("default");
+		expect(err.unwrapOrElse("default")).toBe("default");
 	});
 
 	it("unwrap error", () => {

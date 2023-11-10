@@ -6,7 +6,7 @@ interface IOk<T> {
 	ok: true;
 	value: T;
 	unwrap(): T;
-	unwrapOrDefault(defaultValue: T): T;
+	unwrapOrElse(defaultValue: T): T;
 	unwrapError(): never;
 }
 
@@ -14,7 +14,7 @@ interface IErr<E> {
 	ok: false;
 	error: E;
 	unwrap(): never;
-	unwrapOrDefault(DefaultValue: any): any;
+	unwrapOrElse(DefaultValue: any): any;
 	unwrapError(): E;
 }
 
@@ -38,7 +38,7 @@ class OK<T> implements IOk<T>{
 	 * return a value.
 	 * @param defaultValue
 	 */
-	unwrapOrDefault(defaultValue: T): T {
+	unwrapOrElse(defaultValue: T): T {
 		return this.value;
 	}
 
@@ -72,7 +72,7 @@ class ERR<E> implements IErr<E> {
 	 * Returns a default value that passed as an argument.
 	 * @param defaultValue
 	 */
-	unwrapOrDefault(defaultValue: any): any {
+	unwrapOrElse(defaultValue: any): any {
 		return defaultValue;
 	}
 
