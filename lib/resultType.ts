@@ -1,5 +1,3 @@
-import * as async_hooks from "async_hooks";
-
 export type Result<T, E> = IOk<T> | IErr<E>;
 export const Ok = <T>(value: T): OK<T> => new OK<T>(value);
 export const Err = <E>(error: E): ERR<E> => new ERR<E>(error);
@@ -20,7 +18,7 @@ interface IErr<E> {
 	unwrapError(): E;
 }
 
-class OK<T> implements IOk<T> {
+class OK<T> implements IOk<T>{
 	public readonly ok: true;
 	public readonly value: T;
 
@@ -30,16 +28,24 @@ class OK<T> implements IOk<T> {
 	}
 
 	/**
-	 * return value
+	 * Return a value without a type gard.
 	 */
 	unwrap(): T {
 		return this.value;
 	}
 
+	/**
+	 * return a value.
+	 * @param defaultValue
+	 */
 	unwrapOrDefault(defaultValue: T): T {
 		return this.value;
 	}
 
+	/**
+	 * This method must throw an error.
+	 * @throws Error
+	 */
 	unwrapError(): never {
 		throw Error("This result is OK");
 	}
@@ -53,14 +59,26 @@ class ERR<E> implements IErr<E> {
 		this.ok = false;
 		this.error = error;
 	}
+
+	/**
+	 * This function throw an error.
+	 * @throws Error
+	 */
 	unwrap(): never {
 		throw Error("This result is error");
 	}
 
+	/**
+	 * Returns a default value that passed as an argument.
+	 * @param defaultValue
+	 */
 	unwrapOrDefault(defaultValue: any): any {
 		return defaultValue;
 	}
 
+	/**
+	 * Return an error.
+	 */
 	unwrapError(): E {
 		return this.error;
 	}
