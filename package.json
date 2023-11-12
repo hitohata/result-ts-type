@@ -1,22 +1,22 @@
 {
-  "name": "result-type",
+  "name": "result-ts",
   "version": "0.8.0",
-  "description": "",
-  "main": "src/index.ts",
+  "description": "Result type",
+  "main": "lib/index.ts",
   "scripts": {
     "package": "tsup",
     "test": "vitest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/genesis-tech-tribe/result-type.git"
+    "url": "git+https://github.com/hitohata/result-ts.git"
   },
   "author": "hitohata",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/genesis-tech-tribe/result-type/issues"
+    "url": "https://github.com/hitohata/result-ts/issues"
   },
-  "homepage": "https://github.com/genesis-tech-tribe/result-type#readme",
+  "homepage": "https://github.com/hitohata/result-ts",
   "devDependencies": {
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
