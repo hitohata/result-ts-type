@@ -1,10 +1,13 @@
 {
   "name": "result-ts",
-  "version": "0.8.0",
+  "version": "0.5.0",
   "description": "Result type",
-  "main": "lib/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
-    "package": "tsup",
+    "build": "tsup",
     "test": "vitest"
   },
   "repository": {
