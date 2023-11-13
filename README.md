@@ -6,7 +6,7 @@ This enables you to handle errors without throwing errors and to write reliable 
 ## Install
 
 ```shell
-npm install https://github.com/genesis-tech-tribe/result-type
+npm install result-ts-type
 ```
 
 ## How to use
