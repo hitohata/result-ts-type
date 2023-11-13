@@ -1,4 +1,4 @@
-# Result Types
+# Result TS Type
 
 This result type features Rust's [result type](https://doc.rust-lang.org/std/result/).
 This enables you to handle errors without throwing errors and to write reliable and readable code.
