@@ -1,6 +1,6 @@
 {
-  "name": "result-ts",
-  "version": "0.5.2",
+  "name": "result-ts-type",
+  "version": "0.5.3",
   "description": "Result type",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hitohata/result-ts.git"
+    "url": "git+https://github.com/hitohata/result-ts-type.git"
   },
   "author": "hitohata",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hitohata/result-ts/issues"
+    "url": "https://github.com/hitohata/result-ts-type/issues"
   },
-  "homepage": "https://github.com/hitohata/result-ts",
+  "homepage": "https://github.com/hitohata/result-ts-type",
   "devDependencies": {
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
