@@ -69,4 +69,6 @@ const unwrapError = reulst.unwrapError();
 
 ## Publishing
 
-To publish this result type, you only need to add a tag to the main branch.
+To publish this result type, only need to add a tag to the main branch.
+Once pushed to the main branch, GitHub Actions runs and publishes [this package](https://www.npmjs.com/package/result-ts-type).
+
