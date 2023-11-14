@@ -1,7 +1,7 @@
 # Result TS Type
 
-This result type features Rust's [result type](https://doc.rust-lang.org/std/result/).
-This enables you to handle errors without throwing errors and to write reliable and readable code.
+This result type is inspired by Rust's [result type](https://doc.rust-lang.org/std/result/).
+It allows you to handle errors without relying on error throwing, contribution to creation reliable and readable code.
 
 ## Install
 
@@ -11,11 +11,11 @@ npm install result-ts-type
 
 ## How to use
 
-You can set a result type as a return type of your function.
-Inside the function, you return a value or error using *Ok* or *Err*.  
+You can designate a result type as a return type of your function.
+Within the function, you use *Ok* to return value or *Err* to signify an error. 
 
 ```typescript
-import { Result, Ok, Err } from "result-type"
+import { Result, Ok, Err } from "result-ts-type"
 
 function someFunction(): Result<string, Error> {
     if (someStatemant) {
@@ -48,8 +48,7 @@ console.error(result.error)
 
 ### Extra methods
 
-The result implements [*unwrap*](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap), [*unwrapOrDefault*](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_or_else), [*unwrapError*](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_err).
-Those are implemented for the debug use.
+The result implements [*unwrap*](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap), [*unwrapOrElse*](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_or_else), [*unwrapError*](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_err) for debugging purposes.
 
 ```typescript
 
@@ -68,7 +67,6 @@ const unwrapError = reulst.unwrapError();
 
 ```
 
-## Deploy
+## Publishing
 
-This project is deployed on the GitHub.
-To release this project, you only have to add a tag to the main branch.
+To publish this result type, you only need to add a tag to the main branch.
