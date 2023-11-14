@@ -1,6 +1,6 @@
 {
   "name": "result-ts-type",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Result type",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
