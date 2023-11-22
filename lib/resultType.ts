@@ -1,12 +1,12 @@
 export type Result<T, E> = IOk<T> | IErr<E>;
-export const Ok = <T>(value: T): OK<T> => new OK<T>(value);
-export const Err = <E>(error: E): ERR<E> => new ERR<E>(error);
+export const Ok = <T>(value: T): Result<T, never> => new OK<T>(value);
+export const Err = <E>(error: E): Result<never, E> => new ERR<E>(error);
 
 interface IOk<T> {
 	ok: true;
 	value: T;
 	unwrap(): T;
-	unwrapOrElse(defaultValue: T): T;
+	unwrapOrElse(defaultValue: any): T;
 	unwrapError(): never;
 }
 
@@ -83,3 +83,23 @@ class ERR<E> implements IErr<E> {
 		return this.error;
 	}
 }
+
+/**
+ * get the Result lists from a list of argument.
+ * Then return a Result.
+ * The error of result is the first error of the list of argument.
+ * If the result doesn't contain an error, return Ok(null).
+ * Using this, you can use unwrap after this check function.
+ * @param results
+ */
+export const hasError = <E>(results: Result<any, E>[]): Result<null, E> => {
+	for (const result of results) {
+		if (!result.ok) {
+			return Err(result.error);
+		}
+	}
+
+	return Ok(null);
+}
+
+
