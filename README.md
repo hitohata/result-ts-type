@@ -67,6 +67,34 @@ const unwrapError = reulst.unwrapError();
 
 ```
 
+#### HasError
+
+This is created to check if the result is ERR.
+Result type checking can sometimes be bothersome and impact readability.
+This function serves to address cases.
+After performing this check, you can use the 'unwrap' function in the production code.
+
+Of course, careful attention is required when using the 'unwrap'.
+
+```typescript
+
+const result: Result<string, any> = okFunction();
+const result2: Result<string, any> = okFunction2();
+const result3: Result<string, any> = okFunction3();
+
+const errorCheck = hasError([result, result2, result3]);
+
+if (!errorCheck.ok) {
+    // write error handling
+}
+
+//You can use "unwrap" because it's guaranteed OK.
+const resultValue = result.unwrap();
+const result2Value = result2.unwrap();
+const result3Value = result3.unwrap();
+
+```
+
 ## Publishing
 
 To publish this result type, only need to add a tag to the main branch.
