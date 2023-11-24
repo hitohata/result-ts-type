@@ -4,6 +4,7 @@ export const Err = <E>(error: E): Result<never, E> => new ERR<E>(error);
 
 interface IOk<T> {
 	ok: true;
+	err: false;
 	value: T;
 	unwrap(): T;
 	unwrapOrElse(defaultValue: any): T;
@@ -12,6 +13,7 @@ interface IOk<T> {
 
 interface IErr<E> {
 	ok: false;
+	err: true;
 	error: E;
 	unwrap(): never;
 	unwrapOrElse(DefaultValue: any): any;
@@ -20,10 +22,12 @@ interface IErr<E> {
 
 class OK<T> implements IOk<T> {
 	public readonly ok: true;
+	public readonly err: false;
 	public readonly value: T;
 
 	constructor(value: T) {
 		this.ok = true;
+		this.err = false;
 		this.value = value;
 	}
 
@@ -52,11 +56,13 @@ class OK<T> implements IOk<T> {
 }
 
 class ERR<E> implements IErr<E> {
-	ok: false;
-	error: E;
+	readonly ok: false;
+	readonly err: true;
+	readonly error: E;
 
 	constructor(error: E) {
 		this.ok = false;
+		this.err = true;
 		this.error = error;
 	}
 
