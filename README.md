@@ -41,10 +41,22 @@ if (reuslt.ok) {
     console.log(result.value)
 }
 
+// You can also access the value by checking the err field.
+if (!result.err) {
+    console.log(result.ok)
+}
+
 // If the result's ok field is false, TypeScript infers the result as Err.
 console.error(result.error)
 
 ```
+
+The result field is following:
+
+| Class | ok field | err field | value | error |
+|:------|:--------:|:---------:|:-----:|:-----:|
+| OK    |   true   |   false   |   T   |  N/D  |
+| ERR   |  false   |   true    |  N/D  |   E   |
 
 ### Extra methods
 
