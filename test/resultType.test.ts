@@ -15,6 +15,15 @@ describe("result", () => {
 			// to access to value, it needs type guard
 			if (ok.ok) {
 				expect(ok.value).toBe("value");
+			} else {
+				throw Err("the ok must be true")
+			}
+
+			// you can access the value by checking the err.
+			if (!ok.err) {
+				expect(ok.value).toBe("value")
+			} else {
+				throw Err("the err must be false")
 			}
 		});
 
@@ -46,8 +55,17 @@ describe("result", () => {
 			const err = errResult();
 
 			// to access to error, it needs type guard
+			if (err.err) {
+				expect(err.error).toBeInstanceOf(Error);
+			} else {
+				throw Error("the err must be true")
+			}
+
+			// you can access the value by checking the ok.
 			if (!err.ok) {
 				expect(err.error).toBeInstanceOf(Error);
+			} else {
+				throw Error("the ok must be false")
 			}
 		});
 
