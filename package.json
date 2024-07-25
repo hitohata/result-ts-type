@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "vitest"
+    "test": "vitest",
+    "format": "biome check ./lib --write & biome check ./test --write"
   },
   "repository": {
     "type": "git",
