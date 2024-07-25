@@ -1,1 +1,1 @@
-export { Result, Ok, Err, hasError } from "./resultType";
+export { Result, Ok, ok, Err, err, hasError } from "./resultType";
