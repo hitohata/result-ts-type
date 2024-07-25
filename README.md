@@ -14,6 +14,9 @@ npm install result-ts-type
 You can designate a result type as a return type of your function.
 Within the function, you use *Ok* to return value or *Err* to signify an error. 
 
+> [!NOTE]
+> *Ok* and *ok* are exposed. (*Err* and *err* also) There is no difference between them. So you can use whichever your project fits. 
+
 ```typescript
 import { Result, Ok, Err } from "result-ts-type"
 
