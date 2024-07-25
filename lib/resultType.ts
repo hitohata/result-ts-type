@@ -1,6 +1,8 @@
 export type Result<T, E> = IOk<T> | IErr<E>;
 export const Ok = <T>(value: T): Result<T, never> => new OK<T>(value);
+export const ok = Ok;
 export const Err = <E>(error: E): Result<never, E> => new ERR<E>(error);
+export const err = Err;
 
 interface IOk<T> {
 	ok: true;
