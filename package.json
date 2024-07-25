@@ -1,14 +1,18 @@
 {
   "name": "result-ts-type",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Result type",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
-    "test": "vitest"
+    "test": "vitest",
+    "format": "biome check ./lib --write & biome check ./test --write",
+    "format:check": "biome check ./lib & biome check ./test"
   },
   "repository": {
     "type": "git",
@@ -21,6 +25,7 @@
   },
   "homepage": "https://github.com/hitohata/result-ts-type",
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6"
