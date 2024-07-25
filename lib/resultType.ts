@@ -108,6 +108,4 @@ export const hasError = <E>(results: Result<any, E>[]): Result<null, E> => {
 	}
 
 	return Ok(null);
-}
-
-
+};

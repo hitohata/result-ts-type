@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { Err, Ok, Result, hasError } from "../lib";
+import { Err, Ok, type Result, hasError } from "../lib";
 
 describe("result", () => {
 	describe("ok", () => {
@@ -16,14 +16,14 @@ describe("result", () => {
 			if (ok.ok) {
 				expect(ok.value).toBe("value");
 			} else {
-				throw Err("the ok must be true")
+				throw Err("the ok must be true");
 			}
 
 			// you can access the value by checking the err.
 			if (!ok.err) {
-				expect(ok.value).toBe("value")
+				expect(ok.value).toBe("value");
 			} else {
-				throw Err("the err must be false")
+				throw Err("the err must be false");
 			}
 		});
 
@@ -58,14 +58,14 @@ describe("result", () => {
 			if (err.err) {
 				expect(err.error).toBeInstanceOf(Error);
 			} else {
-				throw Error("the err must be true")
+				throw Error("the err must be true");
 			}
 
 			// you can access the value by checking the ok.
 			if (!err.ok) {
 				expect(err.error).toBeInstanceOf(Error);
 			} else {
-				throw Error("the ok must be false")
+				throw Error("the ok must be false");
 			}
 		});
 
@@ -136,14 +136,17 @@ describe("ERR", () => {
 	});
 });
 
-
 describe("hasError", () => {
 	const stringValueResult = Ok("value");
 	const numberValueResult = Ok(42);
 	const errorResult = Err("error");
 
 	it("detecting error", () => {
-		const errorCheckResult = hasError([stringValueResult, errorResult, numberValueResult]);
+		const errorCheckResult = hasError([
+			stringValueResult,
+			errorResult,
+			numberValueResult,
+		]);
 		expect(errorCheckResult.ok).toBeFalsy();
 		expect(errorCheckResult.unwrapError()).toBe("error");
 	});
@@ -151,6 +154,5 @@ describe("hasError", () => {
 	it("no error result", () => {
 		const errorCheckResult = hasError([stringValueResult, numberValueResult]);
 		expect(errorCheckResult.ok).toBeTruthy();
-	})
-
-})
+	});
+});
