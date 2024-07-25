@@ -11,7 +11,8 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest",
-    "format": "biome check ./lib --write & biome check ./test --write"
+    "format": "biome check ./lib --write & biome check ./test --write",
+    "format:check": "biome check ./lib & biome check ./test"
   },
   "repository": {
     "type": "git",

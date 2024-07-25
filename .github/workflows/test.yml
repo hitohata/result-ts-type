@@ -20,6 +20,21 @@ jobs:
       - name: Run Tests
         run: npm run test
 
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run format check
+        run: npm run format:check
+
   test-package-build:
     runs-on: ubuntu-latest
     steps:
